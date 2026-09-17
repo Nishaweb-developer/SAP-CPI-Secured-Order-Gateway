@@ -89,6 +89,8 @@ payload before redeploying.
 ![Postman 200 OK](screenshots/05-postman-200-ok.png)
 *Live retest after redeploying — 200 OK, all order records processed*
 
+(screenshots/05-postman-200-ok.png)
+
 ### Key lesson
 
 The trace log's actual payload beats any assumption about what a step
