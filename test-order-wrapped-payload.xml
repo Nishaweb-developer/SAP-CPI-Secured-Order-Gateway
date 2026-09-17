@@ -1,0 +1,1 @@
+<?xml version='1.0' encoding='UTF-8'?><root><Order><OrderID>ORD-1001</OrderID><CustomerID>CUST-2001</CustomerID><OrderDate>2026-09-16</OrderDate><MaterialID>MAT-500</MaterialID><Quantity>2</Quantity><UnitPrice>150.00</UnitPrice><TotalAmount>300.00</TotalAmount></Order></root>
