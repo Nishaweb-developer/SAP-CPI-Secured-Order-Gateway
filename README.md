@@ -54,8 +54,8 @@ names. The iFlow's mapping step was still pointing at the old one even
 after the "fixed" mapping was updated. Resolved by recreating the mapping
 cleanly and reconfirming the iFlow step's reference.
 
-<!-- SCREENSHOT NEEDED: iFlow's Message Mapping step properties panel showing
-     the artifact reference — not yet captured, add when available -->
+![iFlow mapping reference](screenshots/03-iflow-mapping-reference.png)
+*iFlow's Message Mapping step confirmed pointing at the correct resource: `/Order_message_Secured`*
 
 **Round 3 — The actual root cause**
 Pulled the raw payload directly out of the Message Processing Log (MPL) at
@@ -79,6 +79,9 @@ Fixed by rebuilding the source schema to have `root` as the document root,
 wrapping a single `Order` child — matching reality instead of assumption.
 Verified with the mapping's built-in Simulate tool against the real wrapped
 payload before redeploying.
+
+![Mapping detail](screenshots/06-mapping-detail.png)
+*Mapping editor showing `root → ProcessedOrder` field-level mappings, `OrderID` traced to `OrderReference`*
 
 ![Simulate success](screenshots/04-simulate-success.png)
 *Simulate test against the real wrapped payload — OrderReference, Customer, LineItem, Total, and ProcessedTimestamp all populated correctly*
@@ -126,21 +129,3 @@ by the same integration flow.
 `SAP BTP` · `SAP Integration Suite (Cloud Integration)` · `API Management`
 · `Message Mapping` · `General Splitter` · `HTTPS/HTTP Adapters`
 · *(planned: RAP, CDS Behavior Definitions, Fiori Elements)*
-
----
-
-## Screenshot status
-
-- ✅ `01-iflow-model.png` — final deployed flow diagram
-- ⬜ `02-namespace-fix-mapping.png` — mapping's source `Order` tree before/after the namespace fix (not yet captured)
-- ⬜ `03-iflow-mapping-reference.png` — iFlow's Message Mapping step properties panel showing the artifact reference (not yet captured)
-- ✅ `04-simulate-success.png` — Simulate panel, successful test output
-- ✅ `05-postman-200-ok.png` — live Postman retest, 200 OK
-- ⬜ `06-api-management-policies.png` *(Part 2, not yet built)*
-- ⬜ `07-end-to-end-trace.png` *(Part 2, not yet built)*
-
-The two outstanding ones (02, 03) document Round 1 and Round 2 of the
-debugging story specifically — if you still have those artifacts around
-(the older namespaced mapping, or the duplicate-artifact state), a quick
-screenshot of each fills the gap. Not blocking — the README reads fine
-without them, since the story is already told in the text above.
