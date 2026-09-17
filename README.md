@@ -80,16 +80,14 @@ wrapping a single `Order` child — matching reality instead of assumption.
 Verified with the mapping's built-in Simulate tool against the real wrapped
 payload before redeploying.
 
+![Postman 200 OK](screenshots/05-postman-200-ok.png)
+*Live retest after redeploying — 200 OK, all order records processed*
+
 ![Mapping detail](screenshots/06-mapping-detail.png)
 *Mapping editor showing `root → ProcessedOrder` field-level mappings, `OrderID` traced to `OrderReference`*
 
 ![Simulate success](screenshots/04-simulate-success.png)
 *Simulate test against the real wrapped payload — OrderReference, Customer, LineItem, Total, and ProcessedTimestamp all populated correctly*
-
-![Postman 200 OK](screenshots/05-postman-200-ok.png)
-*Live retest after redeploying — 200 OK, all order records processed*
-
-(screenshots/05-postman-200-ok.png)
 
 ### Key lesson
 
